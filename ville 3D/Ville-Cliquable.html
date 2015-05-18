@@ -21,7 +21,9 @@
 				z-index: 100;
 				display:block;
 			}
-		
+.number {
+  font-size: 100px;
+}		
 		</style>
 	</head>
 
@@ -30,7 +32,8 @@
 		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 		<script src="script/three.min.js"></script>
 		<script src="script/OBJLoader.js"></script>
-
+		<script src="script/CSS3DRenderer.js"></script>
+		
 		<script>
 
 			var container;
@@ -142,11 +145,23 @@
 				var sphere1 = new THREE.Mesh( sphereGeometry, material );
 				sphere1.position.set(-10, 5, 0);
 				scene.add( sphere1 );
-
 				//$(sphere1).click( function() { alert( "toto" ) ;} );
-
 				//sphere1.on('click', function(){ alert("toto"); });
+				
 
+					var number = document.createElement( 'div' );
+					number.className = 'number';
+					number.textContent = "THREE.JS";
+				  var object = new THREE.CSS3DObject( number );
+				  
+				  scene.add(object);
+				  
+				  var rendererCSS = new THREE.CSS3DRenderer();
+				  rendererCSS.setSize(window.innerWidth, window.innerHeight);
+	
+				  document.body.appendChild(rendererCSS.domElement);
+			  
+				
 /*
 				sphere1.onclick(toto());
 
@@ -181,6 +196,15 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			}
 
+			function position3D(element, p) {
+				//position aléatoire par defaut
+				var object = new THREE.CSS3DObject( element );
+				object.position.x = p.x;
+				object.position.y = p.y;
+				object.position.z = p.z;
+				scene.add( object );
+			}
+			
 			function onWindowResize() {
 
 				windowHalfX = window.innerWidth / 2;
