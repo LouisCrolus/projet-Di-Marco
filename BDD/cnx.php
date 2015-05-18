@@ -20,7 +20,7 @@ while (  $tab_ligne = mysql_fetch_row ($resultats)  )
 
 	echo "id : ", $tab_ligne[0], "<br>" ; // id
 	echo "nom : ", $tab_ligne[1], "<br>" ; // id
-	echo "<img src='oeuvres/", $tab_ligne[2], "' width='400px'>" ; // id
+	echo "<img src='oeuvres/", $tab_ligne[2], "' width='400px'><br>" ; // id
 	
 } ;
 
