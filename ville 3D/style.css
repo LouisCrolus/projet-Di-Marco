@@ -1,0 +1,18 @@
+			body {
+				/*background-color: #ffffff;*/
+				margin: 0;
+				overflow: hidden;
+			}
+
+			#oeuvre{
+				position: absolute;
+				display: none;
+				width: 500px;
+				height: 700px;
+				margin: 0 auto;
+				z-index: 1;
+			}
+
+			canvas{
+				z-index: 0;
+			}
