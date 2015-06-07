@@ -386,12 +386,14 @@
 .leaflet-popup-content-wrapper {
 	padding: 1px;
 	text-align: left;
-	-webkit-border-radius: 20px;
-	        border-radius: 20px;
+
+	color: white;
+	background-color: black;
 	}
 .leaflet-popup-content {
 	margin: 14px 20px;
 	line-height: 1.4;
+
 	}
 .leaflet-popup-content p {
 	margin: 18px 0;

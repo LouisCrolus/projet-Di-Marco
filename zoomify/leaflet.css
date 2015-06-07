@@ -166,7 +166,7 @@
 /* visual tweaks */
 
 .leaflet-container {
-	background: #ddd;
+	background: #000000;
 	outline: 0;
 	}
 .leaflet-container a {
@@ -197,7 +197,7 @@
 	        border-radius: 5px;
 	}
 .leaflet-bar-part {
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: black;
 	border-bottom: 1px solid #aaa;
 	}
 .leaflet-bar-part-top {
@@ -239,7 +239,7 @@
 	height: 22px;
 	text-align: center;
 	text-decoration: none;
-	color: black;
+	color: white;
 	}
 .leaflet-control-zoom a,
 .leaflet-control-layers-toggle {
@@ -324,7 +324,7 @@
 /* attribution and scale controls */
 
 .leaflet-container .leaflet-control-attribution {
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: #000000;
 	box-shadow: 0 0 5px #bbb;
 	margin: 0;
 	}
@@ -386,8 +386,8 @@
 .leaflet-popup-content-wrapper {
 	padding: 1px;
 	text-align: left;
-	-webkit-border-radius: 20px;
-	        border-radius: 20px;
+	color: white;
+	background-color: black;
 	}
 .leaflet-popup-content {
 	margin: 14px 20px;
@@ -417,9 +417,9 @@
 	        transform: rotate(45deg);
 	}
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-	background: white;
+	/*background: white;*/
 
-	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+	/*box-shadow: 0 3px 14px rgba(0,0,0,0.4);*/
 	}
 .leaflet-container a.leaflet-popup-close-button {
 	position: absolute;

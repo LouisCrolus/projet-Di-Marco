@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>interface_img</title>
-    <link rel="stylesheet" href="   leaflet.css" />
+    <link rel="stylesheet" href="leaflet.css" />
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css" />
     <![endif]-->
@@ -31,6 +31,21 @@
             tolerance: 0.8,
             attribution: 'Photo: {Your Name Here}'
         }).addTo(map);
+
+        var myIcon = L.icon({
+            iconUrl: 'icones/my-icon.png',
+            iconSize: [38, 38],
+            iconAnchor: [22, 40],
+        });
+
+        // add a marker in the given location, attach some popup content to it and open the popup
+        L.marker([65, -28], {icon: myIcon}).addTo(map)
+            .bindPopup('<b>La voiture du fils Agnelli</b><p>Di Marco représente ici la voiture telle qu\'elle a probablement été retrouvée après le suicide : la portière ouverte, près du vide, suffit à elle seule pour nous faire comprendre ce qu\'il s\'est passé...</p>')
+
+        L.marker([50, -90], {icon: myIcon}).addTo(map)
+            .bindPopup('<b>Le ballon du fils Agnelli</b><p>Ce simple objet, qui semble être en retrait, saute pourtant rapidement au yeux lorsque l\'on parcours l\'oeuvre de Di Marco. Le football avait en effet une importance pour le fils Agnelli que l\'on ne soupçonnait pas...</p>')
+
+
 
     </script>
 </body>
