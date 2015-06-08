@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>tunnel</title>
+
+<style>
+	.cercle{position: absolute;}
+	#cadreTunnel{background-color: grey;}
+</style>
+
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script src='scrollReveal/dist/scrollReveal.min.js'></script>
+<script type="text/javascript">
+
+
+
+$(function() {
+
+	
+
+	var nbCercle = 5;
+
+	var diffTaille = 300;
+
+	var HauteurEcr = $(window).height();
+	var LargeurEcr = $(window).width();
+
+	var MilieuEcrHaut = HauteurEcr * 0.5;
+	var MilieuEcrLarg = LargeurEcr * 0.5;
+
+	for(i=0; i<nbCercle; i++){ // création des cercles et de leurs tailles différentes
+
+		$("#cadreTunnel").append("<img class='cercle' id='cercleIndividuel"+(nbCercle-i)+"' src='cercle1.png' width='" + (0 + i * diffTaille) + "px'>");
+		
+	}
+
+	centrerCercles();
+
+	var j=0;// pour évolution du grossissement pour chaque cercle (de + en + rapide)
+
+	var k=0;// pour gérer les nouveaux id des nouveaux cercles dans la boucle
+
+	var plop=0;
+
+	$("body").click(function(){
+
+		var tabImg=["cercle1.png", "cercle2.png", "cercle3.png", "cercle4.png"];
+
+		var randImg = tabImg[Math.floor(Math.random()*tabImg.length)];
+
+		// On créé un nouveau cercle de la taille minimale, et on lui donne un id supérieur au précédent
+
+
+		$("#cadreTunnel").append("<img class='cercle' id='cercleIndividuel"+(nbCercle++)+"' src='"+randImg+"' width='" + 0 + "px'>");
+
+		//$("#cadreTunnel").append("<img class='cercle' id='cercleIndividuel"+(0-k)+"' src='cercle1.png' width='" + 0 + "px'>");
+
+		k++; // on incrémente pour que la boucle contienne les nouveaux id à chaque clic
+
+		//centrerCercles();
+
+
+			var LargeurCercle = $("#cercleIndividuel"+(nbCercle-2)).width();
+			var HauteurCercle = $("#cercleIndividuel"+(nbCercle-2)).height();
+
+			var CentreLargeur = (MilieuEcrLarg) - (LargeurCercle / 2) + $(window).scrollLeft();
+			var CentreHauteur = (MilieuEcrHaut) - (HauteurCercle / 2) + $(window).scrollTop();
+
+			$("#cercleIndividuel"+(nbCercle-2)).animate({ left: CentreLargeur, top: CentreHauteur}, 1000 );
+
+
+
+
+		 
+   		for(i=0; i<(nbCercle+k); i++){
+
+   			var LargeurCercle = $("#cercleIndividuel"+i).width();
+
+   			$("#cercleIndividuel"+i).animate({width: "+="+1500/(i)+"px", left: "-="+750/(i)+"px", top: "-="+750/(i)+"px"}, 1000, function(){});
+
+   			//$("#cercleIndividuel"+i).attr("id", ("#cercleIndividuel"+(i+1));    Augmenter l'id de 1 à chaque fois pour permettre un cycle
+   		}
+
+   		j++; // on incrémente, donc la prochaine fois qu'on clique, chaque cercle grandira "j" fois plus vite
+
+   	});
+
+   	function centrerCercles(){
+
+ 		for(i=0; i<nbCercle; i++){
+
+			var LargeurCercle = $("#cercleIndividuel"+i).width();
+			var HauteurCercle = $("#cercleIndividuel"+i).height();
+
+			var CentreLargeur = (MilieuEcrLarg) - (LargeurCercle / 2) + $(window).scrollLeft();
+			var CentreHauteur = (MilieuEcrHaut) - (HauteurCercle / 2) + $(window).scrollTop();
+
+			$("#cercleIndividuel"+i).animate({ left: CentreLargeur, top: CentreHauteur}, 1000 );
+
+   		}
+
+   	};
+
+});
+
+</script>
+
+
+</head>
+
+<body>
+
+	<div  id="cadreTunnel"></div>
+
+
+
+</body>
+
+
+</html>

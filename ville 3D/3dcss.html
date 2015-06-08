@@ -81,7 +81,7 @@
 
 
 				var loader = new THREE.ImageLoader( manager );
-				loader.load( 'texture/texture-map-3d-2.jpg', function ( image ) {
+				loader.load( 'texture/texture-carte-3d.jpg', function ( image ) {
 
 					texture.image = image;
 					texture.needsUpdate = true;
@@ -91,7 +91,7 @@
 				// model
 
 				var loader = new THREE.OBJLoader( manager );
-				loader.load( 'obj/carte-map-3d.obj', function ( object ) {
+				loader.load( 'obj/carte-map-3d-final-2.obj', function ( object ) {
 
 					object.traverse( function ( child ) {
 
