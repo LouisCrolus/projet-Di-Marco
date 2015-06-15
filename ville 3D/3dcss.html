@@ -35,6 +35,8 @@
 
 			var oeuvres = ["10_Policier tue 17X.jpg", "17 ATROX.jpg", "Cannibalisme.jpg", "HK_vampire attaq.jpg", "HK_mangeur de foie.jpg"];
 
+			var icones = ["meurtre-icon.png", "torture-icon.png", "my-icon.png"];
+
 			var clique = 0;
 
 			init();
@@ -43,7 +45,7 @@
 			function init() {
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
-				camera.position.set( 0, 50, 200 );
+				camera.position.set( 0, 150, 300 );
 
 				controls = new THREE.OrbitControls( camera );
 
@@ -129,10 +131,10 @@
 					var j = 0;
 
 					var element = document.createElement( 'img' );
-					element.style.width = '10px';
-					element.style.height = '10px';
+					element.style.width = '20px';
+					element.style.height = '20px';
 					element.style.opacity = 1;
-					element.setAttribute("src", "icones/my-icon.png")
+					element.setAttribute("src", "icones/"+ icones[Math.floor(icones.length * Math.random())] +"");
 
 					element.addEventListener("click", function(e){
 
@@ -154,7 +156,7 @@
 
 					
 					object.position.x = Math.random() * 200 - 100;
-					object.position.y = -10;
+					object.position.y = 70;
 					object.position.z = Math.random() * 200 - 100;
 					//object.rotation.x = Math.random();
 					//object.rotation.y = Math.random();
@@ -202,7 +204,7 @@
 					var element = document.createElement( 'img' );
 					//element.attr("src", "../BDD/oeuvres/" + oeuvre);
 					element.setAttribute("id", "cadreOeuvre");
-					element.style.width = '60px';
+					element.style.width = '120px';
 					//element.style.height = '150px';
 					//element.style.background = "yellow";
 					//element.style.background = "url(../BDD/oeuvres/" + oeuvre + ")";
@@ -213,7 +215,8 @@
 					var object = new THREE.CSS3DObject( element );
 
 					object.position.x = 0;
-					object.position.z = 100;
+					object.position.y = 50;
+					object.position.z = 150;
 
 					scene2.add( object );
 
