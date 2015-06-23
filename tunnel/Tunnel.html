@@ -43,18 +43,27 @@ $(function() {
 
 	var plop=0;
 
+
+
+	var tabImg=["cercle1.png", "cercle2.png", "cercle3.png", "cercle4.png"];
+
+	var tabDiMarco=["oeuvre1.jpg", "oeuvre2.jpg", "oeuvre3.jpg"];
+
+
 	$("body").click(function(){
 
-		var tabImg=["cercle1.png", "cercle2.png", "cercle3.png", "cercle4.png"];
-
 		var randImg = tabImg[Math.floor(Math.random()*tabImg.length)];
+
+		var DiMarco = tabDiMarco[0];
 
 		// On créé un nouveau cercle de la taille minimale, et on lui donne un id supérieur au précédent
 
 
 		$("#cadreTunnel").append("<img class='cercle' id='cercleIndividuel"+(nbCercle++)+"' src='"+randImg+"' width='" + 0 + "px'>");
 
-		//$("#cadreTunnel").append("<img class='cercle' id='cercleIndividuel"+(0-k)+"' src='cercle1.png' width='" + 0 + "px'>");
+		$("#cadreTunnel").append("<img class='cercle' id='cercleIndividuel"+(nbCercle++)+"' src='"+DiMarco+"' width='" + 0 + "px'>");
+
+
 
 		k++; // on incrémente pour que la boucle contienne les nouveaux id à chaque clic
 
@@ -67,9 +76,11 @@ $(function() {
 			var CentreLargeur = (MilieuEcrLarg) - (LargeurCercle / 2) + $(window).scrollLeft();
 			var CentreHauteur = (MilieuEcrHaut) - (HauteurCercle / 2) + $(window).scrollTop();
 
-			$("#cercleIndividuel"+(nbCercle-2)).animate({ left: CentreLargeur, top: CentreHauteur}, 1000 );
+			$("#cercleIndividuel"+(nbCercle-2)).animate({ left: CentreLargeur, top: CentreHauteur}, 1000 ); // centrer le cercle créé
 
+			$("#cercleIndividuel"+(nbCercle-1)).animate({ left: CentreLargeur, top: CentreHauteur}, 1000 ); // centrer l'oeuvre
 
+			$("#cercleIndividuel"+(nbCercle-3)).animate({ opacity: 0.3 }, 1000);
 
 
 		 
